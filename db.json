@@ -1,0 +1,31 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "name": "Abdulaziz Ochilov",
+      "meal": "Osh",
+      "count": 2,
+      "pricy": 40000,
+      "phone": "+998 97 555 12 12",
+      "status": false
+    },
+    {
+      "id": 2,
+      "name": "Egamberdi Hoshimov",
+      "meal": "Osh",
+      "count": 1,
+      "pricy": 20000,
+      "phone": "+998 97 456 78 96",
+      "status": false
+    },
+    {
+      "id": 3,
+      "name": "Muhammad Amin",
+      "meal": "Manti",
+      "count": 10,
+      "pricy": 50000,
+      "phone": "+998 99 485 21 12",
+      "status": false
+    }
+  ]
+}

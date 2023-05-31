@@ -16,8 +16,23 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import DonutLargeIcon from "@mui/icons-material/DonutLarge";
+
+const menu = [
+  {
+    title: "Arizalar",
+    desc: "Yetib kelgan arizalarni kuzatish mumkin",
+    icon: <DonutLargeIcon />,
+    path: "/",
+  },
+  {
+    title: "Yetkazilgan",
+    desc: "Yetkazilgan taomlar ro’yxati bilan tanishing",
+    icon: <DoneAllIcon />,
+    path: "/completed",
+  },
+];
 
 const drawerWidth = 240;
 
@@ -66,9 +81,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function Drawers({ children }) {
+export default function DrawerLeft({ children }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -93,7 +108,7 @@ export default function Drawers({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Express 24
+            Persistent drawer
           </Typography>
         </Toolbar>
       </AppBar>
@@ -121,26 +136,11 @@ export default function Drawers({ children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
+          {menu.map((item, index) => (
+            <ListItem key={item.title} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.title} />
               </ListItemButton>
             </ListItem>
           ))}
